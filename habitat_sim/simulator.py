@@ -163,7 +163,7 @@ class Simulator(SimulatorBackend):
         super().reset()
         for i in range(len(self.agents)):
             self.reset_agent(i)
-
+        
         if agent_ids is None:
             agent_ids = [self._default_agent_id]
             return_single = True
@@ -183,7 +183,7 @@ class Simulator(SimulatorBackend):
 
         self.initialize_agent(agent_id, initial_agent_state)
 
-    def _config_backend(self, config: Configuration) -> None:
+    def _config_backend(self, config: Configuration) -> None:    
         if not self._initialized:
             super().__init__(config.sim_cfg)
             self._initialized = True
@@ -397,7 +397,7 @@ class Simulator(SimulatorBackend):
     ) -> Union[
         Dict[str, Union[bool, ndarray, "Tensor"]],
         Dict[int, Dict[str, Union[bool, ndarray, "Tensor"]]],
-    ]:
+    ]:  
         self._num_total_frames += 1
         if isinstance(action, MutableMapping):
             return_single = False
